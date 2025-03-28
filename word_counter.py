@@ -19,3 +19,11 @@ def write_results(filename, word_counts):
     with open(filename, 'w', encoding='utf-8') as file:
         for word, count in word_counts:
             file.write(f"{word}-{count}\n")
+
+def process_file(input_filename, output_filename):
+    """Обробляє файл і записує топ-10 слів у вихідний файл."""
+    text = read_file(input_filename)
+    words = extract_words(text)
+    top_words = get_top_words(words)
+    write_results(output_filename, top_words)
+    print(f"Обробка завершена успішно! Результати записано у файл '{output_filename}'")

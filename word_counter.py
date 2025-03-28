@@ -1,3 +1,4 @@
+from collections import Counter
 import re
 
 def read_file(filename):
@@ -8,3 +9,7 @@ def read_file(filename):
 def extract_words(text):
     """Розбиває текст на слова, ігноруючи пунктуацію."""
     return re.findall(r'\b\w+\b', text)
+
+def get_top_words(words, top_n=10):
+    """Повертає top_n найпопулярніших слів."""
+    return Counter(words).most_common(top_n)
